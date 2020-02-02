@@ -20,19 +20,32 @@
     require([
       "esri/Map",
       "esri/views/MapView",
-    ], function(Map, MapView) {
+      // ***LOCATE WIDGET MODULE - USED TO FIND YOUR GEOLOCATION** //
+    ], function(Map, MapView, Locate) {
 
       var map = new Map({
-        basemap: "topo-vector"
+        // ***BASEMAP IS OPTIMIZED FOR NAVIGATION*** //
+        basemap: "streets-navigation-vector"
       });
 
       var view = new MapView({
         container: "viewDiv",
         map: map,
-        center: [-118.80500,34.02700],
-        zoom: 13
+        center: [-40,28],
+        // ***ZOOM IS SET TO WORLD VIEW*** //
+        zoom: 2
       });
-
+      
+      // ***CREATE LOCATE WIDGET - SET useHeadingEnabled = False SO IT DOES NOT CHANGE THE ROTATION OF THE MAP ***//
+      var locate = new Locate({
+        view: view,
+        useHeadingEnabled: false,
+        gotToOveride: function(view, options) {
+          options.target.scale = 1500; // OVERIDE THE DEFAULT MAP SCALE //
+          return view.goTo(options.target);
+        }
+      });
+      view.ui.add(locate, "top-left");
     });
   </script>
 </head>
