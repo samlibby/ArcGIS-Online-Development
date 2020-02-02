@@ -54,23 +54,31 @@
         //"content": function(){
           //return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
         //}
-        "content": [{
-          "type": "media",
-            "mediaInfos": [{
-              "type": "column-chart",
-              "caption": "",
-              "value": {
-                fields: ["ELEV_MIN","ELEV_MAX"],
-                normalizeField: null,
-                tooltipField: "Min and max elevation values"
-               }
-             }]
-           }]               
+        expressionInfos: [{
+          name: "elevation-ratio",
+          title: "Elevation change", 
+          expression: "Round((($feature.ELEV_MAX - $feature.ELEV_MIN)/($feature.LENGTH_MI)/5280)*100,2)"
+        }],
+        content: "The {TRL_NAME} trail average slope per mile is: {expression/elevation-ratio}% over a total of {LENGTH_MI} miles."
+      }
+          // *** BAR CHART POP-UP** // 
+        //"content": [{
+          //"type": "media",
+            //"mediaInfos": [{
+              //"type": "column-chart",
+              //"caption": "",
+              //"value": {
+                //fields: ["ELEV_MIN","ELEV_MAX"],
+                //normalizeField: null,
+                //tooltipField: "Min and max elevation values"
+               //}
+             //}]
+           //}]               
       }
       
       var trails = new FeatureLayer({
         url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails_Styled/FeatureServer/0",
-        outFields: ["TRL_NAME", "ELEV_GAIN", "ELEV_MIN", "ELEV_MAX"],
+        outFields: ["TRL_NAME", "ELEV_GAIN", "ELEV_MIN", "ELEV_MAX", "LENGTH_MI"],
         popupTemplate: popupTrails
       });
       
