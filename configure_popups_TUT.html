@@ -48,7 +48,22 @@
       });
       
       map.add(trailheads);
-
+      
+      var popupTrails = {
+        "title": "Trial Information",
+        "content": function(){
+          return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
+        }
+      }
+      
+      var trails = new FeatureLayer({
+        url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails_Styled/FeatureServer/0",
+        outFields: ["TRL_NAME", "ELEV_GAIN"],
+        popupTemplate: popupTrails
+      });
+      
+      map.add(trails,0);
+        
     });
   </script>
 </head>
