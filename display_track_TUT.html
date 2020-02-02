@@ -22,10 +22,12 @@
       "esri/views/MapView",
       "esri/widgets/Locate",
       "esri/widgets/Track",
-      "esri/Graphic"
+      "esri/Graphic",
+      "esri/widgets/Compass"
+      // ***ADD A COMPASS*** //
       // ***TRACK WIDGET MODULE - USED TO TRACK YOUR LOCATION*** //
       // ***LOCATE WIDGET MODULE - USED TO FIND YOUR GEOLOCATION*** //
-    ], function(Map, MapView, Locate, Track, Graphic) {
+    ], function(Map, MapView, Locate, Track, Graphic, Compass) {
 
       var map = new Map({
         // ***BASEMAP IS OPTIMIZED FOR NAVIGATION*** //
@@ -52,7 +54,14 @@
       
      // view.ui.add(locate, "top-left");
       
-       var track = new Track({
+      var compass = new Compass ({
+        view: view
+      });
+      
+      // add compass to top right of the MapView
+      view.ui.add(compass, "top-right");
+      
+      var track = new Track({
          view: view,
          graphic: new Graphic({
            symbol: {
