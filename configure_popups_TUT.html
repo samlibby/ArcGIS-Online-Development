@@ -50,10 +50,22 @@
       map.add(trailheads);
       
       var popupTrails = {
-        "title": "Trial Information",
-        "content": function(){
-          return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
-        }
+        title: "Trial Information",
+        //"content": function(){
+          //return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
+        //}
+        content: [{
+          type: "media",
+            mediaInfos: [{
+              type: "column-chart",
+              caption: "",
+              value: {
+                fields: ["ELEV_MIN,"ELEV_MAX"],
+                normalizeField: null,
+                tooltipField: "Min and max elevation values"
+                         }
+                    }]
+              }]               
       }
       
       var trails = new FeatureLayer({
