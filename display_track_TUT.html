@@ -20,9 +20,12 @@
     require([
       "esri/Map",
       "esri/views/MapView",
-      "esri/widgets/Locate"
-      // ***LOCATE WIDGET MODULE - USED TO FIND YOUR GEOLOCATION** //
-    ], function(Map, MapView, Locate) {
+      "esri/widgets/Locate",
+      "esri/widgets/Track",
+      "esri/Graphics"
+      // ***TRACK WIDGET MODULE - USED TO TRACK YOUR LOCATION*** //
+      // ***LOCATE WIDGET MODULE - USED TO FIND YOUR GEOLOCATION*** //
+    ], function(Map, MapView, Locate, Track, Graphics) {
 
       var map = new Map({
         // ***BASEMAP IS OPTIMIZED FOR NAVIGATION*** //
@@ -38,19 +41,35 @@
       });
       
       // ***CREATE LOCATE WIDGET - SET useHeadingEnabled = False SO IT DOES NOT CHANGE THE ROTATION OF THE MAP ***//
-      var locate = new Locate({
-        view: view,
-        useHeadingEnabled: false,
-        gotToOveride: function(view, options) {
-          options.target.scale = 1500; // OVERIDE THE DEFAULT MAP SCALE //
-          return view.goTo(options.target);
-        }
-      });
+      //var locate = new Locate({
+        //view: view,
+        //useHeadingEnabled: false,
+        //gotToOveride: function(view, options) {
+          //options.target.scale = 1500; // OVERIDE THE DEFAULT MAP SCALE //
+          //return view.goTo(options.target);
+        //}
+      //});
       
-      view.ui.add(locate, "top-left");
+     // view.ui.add(locate, "top-left");
       
+        var track = new Track({
+          view: view,
+          graphic: new Graphic({
+            symbol: {
+              type: "simple-marker",
+              size: "12px",
+              color: "green", 
+              outline: {
+                color: "#efefef",
+                width: "1.5px"
+              }
+            }
+          }),
+          useHeadingEnabled: false // don't change the orientation of the map
     });
     
+    view.ui.add(track, "top-left");
+      
   </script>
 </head>
 <body>
