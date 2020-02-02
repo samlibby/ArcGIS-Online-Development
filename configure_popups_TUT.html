@@ -50,16 +50,16 @@
       map.add(trailheads);
       
       var popupTrails = {
-        title: "Trial Information",
+        "title": "Trial Information",
         //"content": function(){
           //return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
         //}
-        content: [{
-          type: "media",
-            mediaInfos: [{
-              type: "column-chart",
-              caption: "",
-              value: {
+        "content": [{
+          "type": "media",
+            "mediaInfos": [{
+              "type": "column-chart",
+              "caption": "",
+              "value": {
                 fields: ["ELEV_MIN,"ELEV_MAX"],
                 normalizeField: null,
                 tooltipField: "Min and max elevation values"
