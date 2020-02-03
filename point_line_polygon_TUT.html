@@ -1,0 +1,128 @@
+<!-- Reference: ArcGIS JavaScript Tutorials: Display point, line, and polygon graphics - Link: https://developers.arcgis.com/labs/javascript/display-point-line-and-polygon-graphics/ -->
+<!-- All graphics contain a geometry, symbol, and a set of attributes -->
+<!-- Graphics are clickable --> 
+<!-- In this Tutorial, the geometries will be created from the provided latitude and longitiude coordinates -->
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS JavaScript Tutorials: Create a Starter App</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.13/"></script>
+  
+  <script>  
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      // ***ADD GRAPHIC AND GRAPHICLAYER MODULES*** //
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer"
+    ], function(Map, MapView, Graphic, GraphicsLayer) {
+
+      var map = new Map({
+        basemap: "topo-vector"
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [-118.80500,34.02700],
+        zoom: 13
+      });
+      
+      // ***CREATE/ADD A GRAPHICS LAYER TO THE MAP*** //
+      var graphicsLayer = new GraphicsLayer():
+      map.add(graphicsLayer);
+      
+      // ***DEFINE A POINT AND SIMPLEMAKRERSYMBOL OBJECT TO BE USED TO CREATE A NEW POINT GRAPHIC*** //
+      var point = {
+         type: "point",
+         longitude: -118.80657463861,
+         latitude: 34.0005930608889
+       };
+
+       var simpleMarkerSymbol = {
+         type: "simple-marker",
+         color: [226, 119, 40],  // orange
+         outline: {
+           color: [255, 255, 255], // white
+           width: 1
+         }
+       };
+
+       var pointGraphic = new Graphic({
+         geometry: point,
+         symbol: simpleMarkerSymbol
+       });
+
+       graphicsLayer.add(pointGraphic);
+      
+      // ***DEFINE A LINE AND SIMPLELINESYMBOL OBJECT TO BE USED TO CREATE A NEW LINE GRAPHIC*** //
+      var simpleLineSymbol = {
+         type: "simple-line",
+         color: [226, 119, 40], // orange
+         width: 2
+       };
+
+       var polyline = {
+         type: "polyline",
+         paths: [
+           [-118.821527826096, 34.0139576938577],
+           [-118.814893761649, 34.0080602407843],
+           [-118.808878330345, 34.0016642996246]
+         ]
+       });
+
+       var polylineGraphic = new Graphic({
+         geometry: polyline,
+         symbol: simpleLineSymbol
+       })
+
+       graphicsLayer.add(polylineGraphic);
+       
+       // ***DEFINE A POLYGON AND SIMPLEFILLSYMBOL OBJECT TO BE USED TO CREATE A NEW POLYGON GRAPHIC*** //
+       var polygon = {
+         type: "polygon",
+         rings: [
+           [-118.818984489994, 34.0137559967283],
+           [-118.806796597377, 34.0215816298725],
+           [-118.791432890735, 34.0163883241613],
+           [-118.79596686535, 34.008564864635],
+           [-118.808558110679, 34.0035027131376]
+         ]
+       };
+
+       var simpleFillSymbol = {
+         type: "simple-fill",
+         color: [227, 139, 79, 0.8],  // orange, opacity 80%
+         outline: {
+           color: [255, 255, 255],
+           width: 1
+         }
+       };
+
+       var polygonGraphic = new Graphic({
+         geometry: polygon,
+         symbol: simpleFillSymbol
+       });
+
+       graphicsLayer.add(polygonGraphic);
+
+    });
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
+
