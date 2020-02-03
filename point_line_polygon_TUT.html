@@ -60,10 +60,22 @@
          }, 
          size: 10
        };
+      
+       var attributes = {
+         Name: "My point", // 
+         Location: "Point Dume State Beach"
+       };
+       
+       var popupTemplate = {
+         title: "{Name}", 
+         content: "I am located at <b>{Location}</b>."
+       };
 
        var pointGraphic = new Graphic({
          geometry: point,
-         symbol: simpleMarkerSymbol
+         symbol: simpleMarkerSymbol,
+         attributes: attributes,
+         popupTemplate: popupTemplate
        });
 
        graphicsLayer.add(pointGraphic);
