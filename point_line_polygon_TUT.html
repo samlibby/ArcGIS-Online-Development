@@ -15,6 +15,35 @@
       height: 100%;
       width: 100%;
     }
+    
+    h1 { 
+      color: #e98d58; 
+      text-align: center;
+      background-color: #dfd2ae;
+    }
+
+    .nav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      position: fixed;
+      background-color: #e6e6ff;
+    }
+    
+    li a {
+      display: block;
+      color: DarkSlateGrey;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #e98d58;
+      color: white;
+    }
+    
+    
   </style>
   
   <link rel="stylesheet" href="https://js.arcgis.com/4.13/esri/css/main.css">
@@ -177,6 +206,21 @@
   </script>
 </head>
 <body>
+  
+  <!--Reference: w3schools - CSS Navigation Bar - Link: https://www.w3schools.com/css/css_navbar.asp -->
+	<div>
+		<ul class="nav">											
+			<li><a href="access_services_TUT.html"> Google MyMaps Tutorial </a></li>
+			<li><a href="configure_popups_TUT.html"> Google MyMaps Map Pillar </a></li>
+			<li><a href="display_track_TUT.html"> Google MyMaps Routes Pillar </a></li>
+			<li><a href="point_line_polygon_TUT.html"> Google MyMaps Places Pillar </a></li>
+		</ul>
+	</div>
+	
+	<div>
+		<h1> ArcGIS JavaScript Tutorials: Display point, line, and polygon graphics </h1>
+	</div>
+  
   <div id="viewDiv"></div>
 </body>
 </html>
