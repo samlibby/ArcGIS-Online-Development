@@ -52,12 +52,13 @@
        };
 
        var simpleMarkerSymbol = {
-         type: "simple-marker",
-         color: [226, 119, 40],  // orange
+         //type: "simple-marker",
+         color: [0, 150, 50],
          outline: {
            color: [255, 255, 255], // white
-           width: 1
-         }
+           width: 2
+         }, 
+         size: 10
        };
 
        var pointGraphic = new Graphic({
@@ -69,9 +70,10 @@
       
       // ***DEFINE A LINE AND SIMPLELINESYMBOL OBJECT TO BE USED TO CREATE A NEW LINE GRAPHIC*** //
       var simpleLineSymbol = {
-         type: "simple-line",
-         color: [226, 119, 40], // orange
-         width: 2
+         //type: "simple-line",
+         color: [255,0,0], 
+         width: 2,
+         style: "dash"
        };
 
        var polyline = {
@@ -103,12 +105,13 @@
        };
 
        var simpleFillSymbol = {
-         type: "simple-fill",
-         color: [227, 139, 79, 0.8],  // orange, opacity 80%
+         //type: "simple-fill",
+         color: [50, 100, 255, 0.5],  // opacity 50%
          outline: {
            color: [255, 255, 255],
            width: 1
-         }
+         },
+         style: "backward-diagonal"
        };
 
        var polygonGraphic = new Graphic({
