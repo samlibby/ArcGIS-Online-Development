@@ -5,11 +5,49 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>ArcGIS JavaScript Tutorials: Create a Starter App</title>
   <style>
-    html, body, #viewDiv {
-      padding: 0;
-      margin: 0;
+    html, body, {
+      padding: 0px;
+      margin: 0px;
       height: 100%;
-      width: 100%;
+    }
+	  
+    #viewDiv {
+      height: 90%;
+      width: 90%;
+      top:100px;
+      left:300px;
+      right: 10px;
+      bottom: 50px;
+      position: fixed;
+    }
+    
+    h1 { 
+      color: #90c284; 
+      text-align: center;
+      background-color: #FFFFFF;
+      padding-bottom: 30px;
+      padding-top: 10px;
+    }
+
+    .nav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      position: fixed;
+      background-color: #FFFFFF;
+    }
+    
+    li a {
+      display: block;
+      color: #90c284;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #90c284;
+      color: #FFFFFF;
     }
   </style>
   
@@ -84,6 +122,21 @@
   </script>
 </head>
 <body>
+
+  <div>
+		<h1> ArcGIS JavaScript Tutorials: Display and track your location </h1>
+	</div>
+	
+  <!--Reference: w3schools - CSS Navigation Bar - Link: https://www.w3schools.com/css/css_navbar.asp -->
+	<div>
+		<ul class="nav">											
+			<li><a href="access_services_TUT.html"> Access Services Tut. </a></li>
+			<li><a href="configure_popups_TUT.html"> Configure Popups Tut. </a></li>
+			<li><a href="display_track_TUT.html"> Display and Track Tut. </a></li>
+			<li><a href="point_line_polygon_TUT.html"> Point/Line/Polgon Tut. </a></li>
+		</ul>
+	</div>
+  
   <div id="viewDiv"></div>
 </body>
 </html>
