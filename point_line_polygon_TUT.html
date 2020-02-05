@@ -77,7 +77,7 @@
         container: "viewDiv",
         map: map,
         center: [-118.80500,34.02700],
-        zoom: 13
+        zoom: 10
       });
       
       // ***CREATE/ADD A GRAPHICS LAYER TO THE MAP*** //
@@ -173,7 +173,7 @@
 
        graphicsLayer.add(polygonGraphic);
       
-       // Add a blue location pin
+       // Add a location pin for Escondido Falls
       var pictureGraphic = new Graphic({
         geometry: {
           type: "point",
@@ -213,7 +213,7 @@
 
      graphicsLayer.add(textGraphic);
 	    
-	          // Add a blue location pin
+	// Add a location pin for Santa Ynez Falls
       var pictureGraphic = new Graphic({
         geometry: {
           type: "point",
@@ -250,8 +250,9 @@
          }
        }
      });
+     graphicsLayer.add(textGraphic);
        
-	          // Add a blue location pin
+	// Add a location pin for Paradise Falls
       var pictureGraphic = new Graphic({
         geometry: {
           type: "point",
@@ -288,9 +289,10 @@
          }
        }
      });
+     graphicsLayer.add(textGraphic);
 	    
 	    
-      // Add a blue location pin
+      // Add a location pin for Zuma Beach
       var pictureGraphic = new Graphic({
         geometry: {
           type: "point",
