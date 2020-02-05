@@ -213,6 +213,83 @@
 
      graphicsLayer.add(textGraphic);
 	    
+	          // Add a blue location pin
+      var pictureGraphic = new Graphic({
+        geometry: {
+          type: "point",
+          longitude: -118.569965,
+          latitude: 34.091527
+        },
+        symbol: {
+          type: "picture-marker",
+          url: "https://samlibby.github.io/ArcGIS-Online-Development/waterfall_icon.png",
+          width: "36px",
+          height: "36px"
+        }
+      });
+
+      graphicsLayer.add(pictureGraphic);
+
+     // Add text above the pin
+     var textGraphic = new Graphic({
+       geometry: {
+         type: "point",
+          longitude: -118.569965,
+          latitude: 34.091527
+       },
+       symbol: {
+          type: "text",
+          color: [25,25,25],
+          haloColor: [255,255,255],
+          haloSize: "1px",
+          text: "Santa Ynez Falls!",
+          xoffset: 0,
+          yoffset: 20,
+          font: {
+            size: 12
+         }
+       }
+     });
+       
+	          // Add a blue location pin
+      var pictureGraphic = new Graphic({
+        geometry: {
+          type: "point",
+          longitude: -118.909855,
+          latitude: 34.214264
+        },
+        symbol: {
+          type: "picture-marker",
+          url: "https://samlibby.github.io/ArcGIS-Online-Development/waterfall_icon.png",
+          width: "36px",
+          height: "36px"
+        }
+      });
+
+      graphicsLayer.add(pictureGraphic);
+
+     // Add text above the pin
+     var textGraphic = new Graphic({
+       geometry: {
+         type: "point",
+          longitude: -118.909855,
+          latitude: 34.214264
+       },
+       symbol: {
+          type: "text",
+          color: [25,25,25],
+          haloColor: [255,255,255],
+          haloSize: "1px",
+          text: "Paradise Falls!",
+          xoffset: 0,
+          yoffset: 20,
+          font: {
+            size: 12
+         }
+       }
+     });
+	    
+	    
       // Add a blue location pin
       var pictureGraphic = new Graphic({
         geometry: {
