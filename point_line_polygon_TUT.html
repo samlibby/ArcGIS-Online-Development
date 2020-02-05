@@ -183,8 +183,8 @@
         symbol: {
           type: "picture-marker",
           url: "https://samlibby.github.io/ArcGIS-Online-Development/waterfall_icon.png",
-          width: "26px",
-          height: "26px"
+          width: "36px",
+          height: "36px"
         }
       });
 
@@ -202,11 +202,51 @@
           color: [25,25,25],
           haloColor: [255,255,255],
           haloSize: "1px",
-          text: "This is Escondido Falls!",
+          text: "Escondido Falls!",
           xoffset: 0,
           yoffset: 20,
           font: {
-            size: 10
+            size: 12
+         }
+       }
+     });
+
+     graphicsLayer.add(textGraphic);
+	    
+      // Add a blue location pin
+      var pictureGraphic = new Graphic({
+        geometry: {
+          type: "point",
+          longitude: -118.820512,
+          latitude: 34.015723
+        },
+        symbol: {
+          type: "picture-marker",
+          url: "https://samlibby.github.io/ArcGIS-Online-Development/beach_icon.png",
+          width: "36px",
+          height: "36px"
+        }
+      });
+
+      graphicsLayer.add(pictureGraphic);
+
+     // Add text above the pin
+     var textGraphic = new Graphic({
+       geometry: {
+         type: "point",
+          longitude: -118.820512,
+          latitude: 34.015723
+       },
+       symbol: {
+          type: "text",
+          color: [25,25,25],
+          haloColor: [255,255,255],
+          haloSize: "1px",
+          text: "Zuma Beach!",
+          xoffset: 0,
+          yoffset: 20,
+          font: {
+            size: 12
          }
        }
      });
